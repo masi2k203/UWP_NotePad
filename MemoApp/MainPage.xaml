@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    RequestedTheme="Light">
+    RequestedTheme="Light"
+    NavigationCacheMode="Enabled">
 
     <Page.TopAppBar>
         <CommandBar DefaultLabelPosition="Right">
@@ -19,27 +20,9 @@
             <AppBarButton x:Name="btnCopy" Label="コピー" Icon="Copy" Click="btnCopy_Click"/>
             <AppBarButton x:Name="btnPaste" Label="貼り付け" Icon="Paste" Click="btnPaste_Click"/>
             <AppBarSeparator/>
-            <AppBarButton x:Name="btnCustom" Label="設定" Icon="Setting">
-                <AppBarButton.Flyout>
-                    <Flyout>
-                        <StackPanel>
-                            <TextBlock Text="フォント"/>
-                            <ComboBox x:Name="comboFontItem" Width="200">
-                                <ComboBoxItem Content="MSゴシック"/>
-                                <ComboBoxItem Content="游ゴシック"/>
-                                <ComboBoxItem Content="游明朝"/>
-                            </ComboBox>
-                            <Button x:Name="btnFontChange" Content="変更" 
-                                    HorizontalAlignment="Right" 
-                                    Background="LightGray" Foreground="Black" 
-                                    FocusVisualPrimaryBrush="LightGray" FocusVisualSecondaryBrush="LightGray"/>
-                        </StackPanel>
-                    </Flyout>
-                </AppBarButton.Flyout>
-            </AppBarButton>
 
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="btnSetting" Label="設定" Icon="Setting"/>
+                <AppBarButton x:Name="btnSetting" Label="設定" Icon="Setting" Click="btnSetting_Click"/>
                 <AppBarSeparator/>
                 <AppBarButton x:Name="btnInfo" Label="バージョン情報" Icon="Help" Click="btnInfo_Click"/>
             </CommandBar.SecondaryCommands>
@@ -55,7 +38,8 @@
                  Text=""
                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
                  ScrollViewer.VerticalScrollBarVisibility="Visible"
-                 AcceptsReturn="True"/>
+                 AcceptsReturn="True"
+                 />
 
         <ContentDialog x:Name="digConfirm"
                        Title="メモ帳"

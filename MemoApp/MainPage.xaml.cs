@@ -206,5 +206,14 @@ namespace MemoApp
             txtMemo.Focus(FocusState.Programmatic);
         }
 
+        /// <summary>
+        /// 設定画面への遷移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SettingPage));
+        }
     }
 }
