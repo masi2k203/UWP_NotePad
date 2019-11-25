@@ -198,7 +198,7 @@ namespace MemoApp
         /// <param name="e"></param>
         private async void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.1.010";
+            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.1.020";
 
             var result = await this.infodigConfirm.ShowAsync();
 
