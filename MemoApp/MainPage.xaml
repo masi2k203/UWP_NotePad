@@ -35,6 +35,11 @@
             <AppBarSeparator/>
             <AppBarButton x:Name="btnFontSizeIncrease" Icon="FontIncrease" Click="btnFontSizeIncrease_Click"/>
             <AppBarButton x:Name="btnFontSizeDecrease" Icon="FontDecrease" Click="btnFontSizeDecrease_Click"/>
+            <AppBarSeparator/>
+
+            <CommandBar.Content>
+                <TextBlock x:Name="CaretPosition" Text="文字数 : 0" Margin="12,14"/>
+            </CommandBar.Content>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -47,7 +52,8 @@
                  FontSize="14"
                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
                  ScrollViewer.VerticalScrollBarVisibility="Visible"
-                 AcceptsReturn="True"
+                 AcceptsReturn="True" 
+                 TextChanged="txtMemo_TextChanged"
                  />
 
         <ContentDialog x:Name="digConfirm"

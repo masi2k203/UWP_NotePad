@@ -198,7 +198,7 @@ namespace MemoApp
         /// <param name="e"></param>
         private async void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.1.020";
+            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.2.001";
 
             var result = await this.infodigConfirm.ShowAsync();
 
@@ -234,6 +234,17 @@ namespace MemoApp
         private void btnFontSizeDecrease_Click(object sender, RoutedEventArgs e)
         {
             txtMemo.FontSize--;
+        }
+
+        /// <summary>
+        /// Textが変化するときの処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtMemo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int txtLength = txtMemo.SelectionStart;
+            CaretPosition.Text = string.Format($"文字数 : {txtLength}");
         }
     }
 }
