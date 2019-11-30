@@ -26,16 +26,25 @@
                 <AppBarSeparator/>
                 <AppBarButton x:Name="btnInfo" Label="バージョン情報" Icon="Help" Click="btnInfo_Click"/>
             </CommandBar.SecondaryCommands>
-
-            
         </CommandBar>
     </Page.TopAppBar>
 
+    <Page.BottomAppBar>
+        <CommandBar DefaultLabelPosition="Right">
+            <AppBarButton x:Name="btnFontStyle" Label="フォント設定" Icon="Font"/>
+            <AppBarSeparator/>
+            <AppBarButton x:Name="btnFontSizeIncrease" Icon="FontIncrease" Click="btnFontSizeIncrease_Click"/>
+            <AppBarButton x:Name="btnFontSizeDecrease" Icon="FontDecrease" Click="btnFontSizeDecrease_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
     <Grid>
         <TextBox x:Name="txtMemo"
-                 Margin="0,0,0,0"
+                 Margin="-2,-2,-2,-2"
                  TextWrapping="Wrap"
                  Text=""
+                 FontFamily="Yu Gothic"
+                 FontSize="14"
                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
                  ScrollViewer.VerticalScrollBarVisibility="Visible"
                  AcceptsReturn="True"

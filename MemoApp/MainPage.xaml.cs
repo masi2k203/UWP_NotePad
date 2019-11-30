@@ -215,5 +215,25 @@ namespace MemoApp
         {
             this.Frame.Navigate(typeof(SettingPage));
         }
+
+        /// <summary>
+        /// フォントサイズのインクリメント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFontSizeIncrease_Click(object sender, RoutedEventArgs e)
+        {
+            txtMemo.FontSize++;
+        }
+
+        /// <summary>
+        /// フォントサイズのデクリメント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFontSizeDecrease_Click(object sender, RoutedEventArgs e)
+        {
+            txtMemo.FontSize--;
+        }
     }
 }
