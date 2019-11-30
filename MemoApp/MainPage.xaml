@@ -16,10 +16,6 @@
             <AppBarButton x:Name="btnOpen" Label="開く" Icon="OpenFile" Click="btnOpen_Click"/>
             <AppBarButton x:Name="btnSave" Label="保存" Icon="Save" Click="btnSave_Click"/>
             <AppBarSeparator/>
-            <AppBarButton x:Name="btnCut" Label="切り取り" Icon="Cut" Click="btnCut_Click"/>
-            <AppBarButton x:Name="btnCopy" Label="コピー" Icon="Copy" Click="btnCopy_Click"/>
-            <AppBarButton x:Name="btnPaste" Label="貼り付け" Icon="Paste" Click="btnPaste_Click"/>
-            <AppBarSeparator/>
 
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="btnSetting" Label="設定" Icon="Setting" Click="btnSetting_Click"/>
@@ -35,6 +31,16 @@
             <AppBarSeparator/>
             <AppBarButton x:Name="btnFontSizeIncrease" Icon="FontIncrease" Click="btnFontSizeIncrease_Click"/>
             <AppBarButton x:Name="btnFontSizeDecrease" Icon="FontDecrease" Click="btnFontSizeDecrease_Click"/>
+            <AppBarSeparator/>
+            <AppBarButton x:Name="btnEdit" Label="編集" Icon="Edit">
+                <AppBarButton.Flyout>
+                    <MenuFlyout x:Name="flyoutEditmenu">
+                        <MenuFlyoutItem Text="コピー" Icon="Copy" Click="btnCopy_Click"/>
+                        <MenuFlyoutItem Text="切り取り" Icon="Cut" Click="btnCut_Click"/>
+                        <MenuFlyoutItem Text="貼り付け" Icon="Paste" Click="btnPaste_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
             <AppBarSeparator/>
 
             <CommandBar.Content>
