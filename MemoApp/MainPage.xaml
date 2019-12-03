@@ -12,13 +12,24 @@
 
     <Page.TopAppBar>
         <CommandBar DefaultLabelPosition="Right">
-            <AppBarButton x:Name="btnNew" Label="新規作成" Icon="Document" Click="btnNew_Click"/>
-            <AppBarButton x:Name="btnOpen" Label="開く" Icon="OpenFile" Click="btnOpen_Click"/>
-            <AppBarButton x:Name="btnSave" Label="保存" Icon="Save" Click="btnSave_Click"/>
-            <AppBarSeparator/>
-            <AppBarButton x:Name="btnCut" Label="切り取り" Icon="Cut" Click="btnCut_Click"/>
-            <AppBarButton x:Name="btnCopy" Label="コピー" Icon="Copy" Click="btnCopy_Click"/>
-            <AppBarButton x:Name="btnPaste" Label="貼り付け" Icon="Paste" Click="btnPaste_Click"/>
+            <AppBarButton x:Name="flyoutFile" Label="ファイル" Icon="Folder">
+                <AppBarButton.Flyout>
+                    <MenuFlyout AreOpenCloseAnimationsEnabled="False">
+                        <MenuFlyoutItem x:Name="btnNew" Text="新規作成" Icon="Document" Click="btnNew_Click"/>
+                        <MenuFlyoutItem x:Name="btnOpen" Text="開く" Icon="OpenFile" Click="btnCopy_Click"/>
+                        <MenuFlyoutItem x:Name="btnSave" Text="保存" Icon="Save" Click="btnSave_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton x:Name="flyoutEdit" Label="編集" Icon="Edit">
+                <AppBarButton.Flyout>
+                    <MenuFlyout AreOpenCloseAnimationsEnabled="False">
+                        <MenuFlyoutItem x:Name="btnCut" Text="切り取り" Icon="Cut" Click="btnCut_Click"/>
+                        <MenuFlyoutItem x:Name="btnCopy" Text="コピー" Icon="Copy" Click="btnCopy_Click"/>
+                        <MenuFlyoutItem x:Name="btnPaste" Text="貼り付け" Icon="Paste" Click="btnPaste_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
             <AppBarSeparator/>
 
             <CommandBar.SecondaryCommands>
@@ -31,7 +42,16 @@
 
     <Page.BottomAppBar>
         <CommandBar DefaultLabelPosition="Right">
-            <AppBarButton x:Name="btnFontStyle" Label="フォント設定" Icon="Font"/>
+            <AppBarButton x:Name="btnFontStyle" Label="フォント設定" Icon="Font">
+                <AppBarButton.Flyout>
+                    <Flyout>
+                        <StackPanel>
+                            <TextBlock Text="フォントサイズ"/>
+                            <Slider x:Name="sliderFontSize" Minimum="1" Maximum="100" Value="14" Width="100" ValueChanged="sliderFontSize_ValueChanged"/>
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
             <AppBarSeparator/>
             <AppBarButton x:Name="btnFontSizeIncrease" Icon="FontIncrease" Click="btnFontSizeIncrease_Click"/>
             <AppBarButton x:Name="btnFontSizeDecrease" Icon="FontDecrease" Click="btnFontSizeDecrease_Click"/>

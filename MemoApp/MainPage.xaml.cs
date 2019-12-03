@@ -246,5 +246,15 @@ namespace MemoApp
             int txtLength = txtMemo.SelectionStart;
             CaretPosition.Text = string.Format($"文字数 : {txtLength}");
         }
+
+        /// <summary>
+        /// Sliderによるフォントサイズの変更
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sliderFontSize_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            
+        }
     }
 }
