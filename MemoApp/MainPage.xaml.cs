@@ -16,6 +16,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using Windows.ApplicationModel.DataTransfer;
+using System.Collections.ObjectModel;
 
 // 空白ページの項目テンプレートについては、https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x411 を参照してください
 
@@ -26,9 +27,12 @@ namespace MemoApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        ObservableCollection<FontFamily> fonts = new ObservableCollection<FontFamily>();
         public MainPage()
         {
             this.InitializeComponent();
+            fonts.Add(new FontFamily("Yu Gothic"));
+            fonts.Add(new FontFamily("メイリオ"));
         }
 
         /// <summary>
@@ -94,6 +98,17 @@ namespace MemoApp
                     await dialog.ShowAsync();
                 }
             }
+        }
+
+        /// <summary>
+        /// [元に戻す]ボタンを押した時の処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUndo_Click(object sender, RoutedEventArgs e)
+        {
+            // 直前の操作を元に戻す
+            txtMemo.Undo();
         }
 
         /// <summary>
@@ -198,7 +213,7 @@ namespace MemoApp
         /// <param name="e"></param>
         private async void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.2.001";
+            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.3.a01(added:1)";
 
             var result = await this.infodigConfirm.ShowAsync();
 
@@ -256,5 +271,7 @@ namespace MemoApp
         {
             
         }
+
+        
     }
 }

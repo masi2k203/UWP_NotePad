@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    RequestedTheme="Light"
+    RequestedTheme="Default"
     NavigationCacheMode="Enabled">
 
     <Page.TopAppBar>
@@ -16,20 +16,34 @@
                 <AppBarButton.Flyout>
                     <MenuFlyout AreOpenCloseAnimationsEnabled="False">
                         <MenuFlyoutItem x:Name="btnNew" Text="新規作成" Icon="Document" Click="btnNew_Click"/>
-                        <MenuFlyoutItem x:Name="btnOpen" Text="開く" Icon="OpenFile" Click="btnCopy_Click"/>
+                        <MenuFlyoutItem x:Name="btnOpen" Text="開く" Icon="OpenFile" Click="btnOpen_Click"/>
                         <MenuFlyoutItem x:Name="btnSave" Text="保存" Icon="Save" Click="btnSave_Click"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
+            
             <AppBarButton x:Name="flyoutEdit" Label="編集" Icon="Edit">
                 <AppBarButton.Flyout>
                     <MenuFlyout AreOpenCloseAnimationsEnabled="False">
+                        <MenuFlyoutItem x:Name="btnUndo" Text="元に戻す" Icon="Undo" Click="btnUndo_Click"/>
+                        <MenuFlyoutSeparator/>
                         <MenuFlyoutItem x:Name="btnCut" Text="切り取り" Icon="Cut" Click="btnCut_Click"/>
                         <MenuFlyoutItem x:Name="btnCopy" Text="コピー" Icon="Copy" Click="btnCopy_Click"/>
                         <MenuFlyoutItem x:Name="btnPaste" Text="貼り付け" Icon="Paste" Click="btnPaste_Click"/>
+                        <MenuFlyoutItem x:Name="btnDelete" Text="削除" Icon="Delete"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
+            
+            <AppBarButton x:Name="flyoutFont" Label="書式" Icon="Character">
+                <AppBarButton.Flyout>
+                    <MenuFlyout AreOpenCloseAnimationsEnabled="False">
+                        <MenuFlyoutItem x:Name="btnFontsSetting" Text="フォント" Icon="Font"/>
+                        <ToggleMenuFlyoutItem x:Name="toggleReturnRight" Text="右端で折り返す" IsChecked="True"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            
             <AppBarSeparator/>
 
             <CommandBar.SecondaryCommands>
@@ -46,8 +60,7 @@
                 <AppBarButton.Flyout>
                     <Flyout>
                         <StackPanel>
-                            <TextBlock Text="フォントサイズ"/>
-                            <Slider x:Name="sliderFontSize" Minimum="1" Maximum="100" Value="14" Width="100" ValueChanged="sliderFontSize_ValueChanged"/>
+                            
                         </StackPanel>
                     </Flyout>
                 </AppBarButton.Flyout>
