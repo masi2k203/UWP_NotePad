@@ -28,6 +28,7 @@ namespace MemoApp
     public sealed partial class MainPage : Page
     {
         ObservableCollection<FontFamily> fonts = new ObservableCollection<FontFamily>();
+        private int useFontSize = 0;
         public MainPage()
         {
             this.InitializeComponent();
@@ -248,11 +249,9 @@ namespace MemoApp
         /// <param name="e"></param>
         private void btnFontSizeDecrease_Click(object sender, RoutedEventArgs e)
         {
-            if (txtMemo.FontSize < 1)
-            {
-                txtMemo.FontSize = 1;
-            }
-            else
+            useFontSize = (int)txtMemo.FontSize;
+
+            if (useFontSize > 4)
             {
                 txtMemo.FontSize--;
             }
