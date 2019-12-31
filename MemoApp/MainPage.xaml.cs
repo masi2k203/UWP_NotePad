@@ -36,7 +36,7 @@ namespace MemoApp
         }
 
         /// <summary>
-        /// [保存]ボタンを押した時の処理
+        /// [名前を付けて保存]ボタンを押した時の処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -213,7 +213,7 @@ namespace MemoApp
         /// <param name="e"></param>
         private async void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.3.a01(added:1)";
+            this.infodigConfirm.Content = "メモ帳(UWP)\nバージョン：0.3.a02(added:2)";
 
             var result = await this.infodigConfirm.ShowAsync();
 
@@ -248,7 +248,14 @@ namespace MemoApp
         /// <param name="e"></param>
         private void btnFontSizeDecrease_Click(object sender, RoutedEventArgs e)
         {
-            txtMemo.FontSize--;
+            if (txtMemo.FontSize < 1)
+            {
+                txtMemo.FontSize = 1;
+            }
+            else
+            {
+                txtMemo.FontSize--;
+            }
         }
 
         /// <summary>
@@ -272,6 +279,14 @@ namespace MemoApp
             
         }
 
-        
+        /// <summary>
+        /// [フォント設定]を押した時の処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFontStyle_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(FontSettingPage));
+        }
     }
 }
